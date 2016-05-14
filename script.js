@@ -16,6 +16,7 @@
 		var sttldOne = document.querySelector('.sttldOne');
 		var sttldTwo = document.querySelector(".sttldTwo");
 		var statusHolder = document.querySelectorAll(".status-holder");
+		var storeRootHolder = document.querySelector(".storeRootPrint");
 
 		summary.style.display = "none";
 		status.style.display = "none";
@@ -33,6 +34,8 @@
 		sttldOne.addEventListener("click", SelectionInsert, false);
 
 		sttldTwo.addEventListener("click", SelectionInsert, false);
+
+		storeRootHolder.addEventListener("click", printStoreRootInConsole, false);
 
 		function DomainText (event) {
 			status.style.display = "none";
@@ -65,7 +68,6 @@
 		}
 
 		function displaySuffixSelector (baseDomain) {
-			console.log(baseDomain);
 			hideStatusHolder();
 			var tldOneText = (baseDomain.extn);
 			var tldTwoText = (baseDomain.extnT);
@@ -97,6 +99,12 @@
 			for (var sh = 0; sh < statusHolder.length; sh++) {
 				statusHolder[sh].style.display = "none";			
 			}
+		}
+
+		function printStoreRootInConsole () {
+			console.clear();
+			console.log("%c %c %c Root | DomainStore %c %c %c http://chandreshrm.name", "background: #f2f2f2","background: #dddddd","color: #222222; background: #cccccc;","background: #dddddd","background: #f2f2f2","background: #ffffff");
+			console.log(store.root);
 		}
 
 	}, true);
